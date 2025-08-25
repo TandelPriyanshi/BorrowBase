@@ -1,69 +1,26 @@
-# React + TypeScript + Vite
+Borrowbase – Neighborhood Resource Exchange
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A hyperlocal app that helps neighbors lend, borrow, and exchange everyday items—like tools, books, furniture, and more. The goal is to encourage sustainability while strengthening community interaction.
 
-Currently, two official plugins are available:
+🎯 Goal
+To create a Neighborhood Resource Exchange App where users can:
+- Borrow items instead of buying new
+- Lend unused items to others nearby
+- Build trust and connection within their community
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📦 Features
 
-## Expanding the ESLint configuration
+- 🔐 User Authentication – Secure login & signup
+- 🏠 User Profile with Location Verification – Validate neighbors by location
+- 📸 Resource Listing – Add items with photos & availability status
+- 📥 Borrow Requests – Manage lending & borrowing requests
+- 📰 Resource Feed – Browse items with filters (distance, category, etc.)
+- 🔔 Notifications – Get updates on requests and exchanges
+- 💬 Chat Module – In-app messaging (basic or real-time)
+- ⭐ Ratings & Reviews – Build trust through user feedback
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+💻 Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Frontend: React + TailwindCSS
+- Backend: Node.js + Express
+- Database: PostgreSQL
