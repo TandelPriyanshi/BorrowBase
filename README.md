@@ -1,8 +1,9 @@
-Borrowbase – Neighborhood Resource Exchange
+# Borrowbase – Neighborhood Resource Exchange #
 
 A hyperlocal app that helps neighbors lend, borrow, and exchange everyday items—like tools, books, furniture, and more. The goal is to encourage sustainability while strengthening community interaction.
 
 🎯 Goal
+
 To create a Neighborhood Resource Exchange App where users can:
 - Borrow items instead of buying new
 - Lend unused items to others nearby
@@ -24,3 +25,12 @@ To create a Neighborhood Resource Exchange App where users can:
 - Frontend: React + TailwindCSS
 - Backend: Node.js + Express
 - Database: PostgreSQL
+
+📖 Usage
+
+- Sign up and verify your location
+- Create your profile and list items to lend
+- Browse available resources nearby
+- Send/receive borrow requests
+- Chat with neighbors to coordinate
+- Leave ratings & reviews after exchange
