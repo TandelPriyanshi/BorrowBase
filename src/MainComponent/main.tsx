@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Card from "../Component/card";
+import Card from "../components/card";
 import GetLocation from "../Location/GetLocation";
 
 interface MainProps {
@@ -17,6 +17,8 @@ interface Resource {
   owner_latitude?: number;
   owner_longitude?: number;
   owner_address?: string;
+  average_rating?: number;
+  review_count?: number;
 }
 
 interface UserProfile {
@@ -28,6 +30,7 @@ interface UserProfile {
 const Main: React.FC<MainProps> = () => {
   const [resources, setResources] = useState<Resource[]>([]);
   const [userLocation, setUserLocation] = useState<UserProfile | null>(null);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   const fetchUserProfile = async () => {
     try {
@@ -57,10 +60,16 @@ const Main: React.FC<MainProps> = () => {
     }
   };
 
+  // Function to refresh resources
+  const refreshResources = () => {
+    setRefreshKey(prev => prev + 1);
+    fetchResources();
+  };
+
   useEffect(() => {
     fetchUserProfile();
     fetchResources();
-  }, []);
+  }, [refreshKey]);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-2 m-2">
@@ -81,6 +90,9 @@ const Main: React.FC<MainProps> = () => {
           current_user_id={userLocation?.id || 0}
           current_latitude={userLocation?.latitude}
           current_longitude={userLocation?.longitude}
+          rating={res.average_rating || 0}
+          reviewCount={res.review_count || 0}
+          onReviewSubmitted={refreshResources}
         />
       ))}
     </div>

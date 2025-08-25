@@ -56,8 +56,7 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/notifications", NotificationRoutes);
 app.use("/api/reviews", ReviewRoutes);
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.use("/uploads/profile", express.static(path.join(__dirname, "uploads/profile")));
+app.use("/uploads", express.static("uploads"));
 
 // Socket.IO
 io.on("connection", (socket) => {

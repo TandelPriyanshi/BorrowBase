@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Camera } from "lucide-react";
-import Button from "../Component/button";
-import Modal from "../Component/modal";
+import Button from "../components/button";
+import Modal from "../components/modal";
 import AddResourceForm from "./AddResourceForm";
-import ProfileCard from "../Component/profileCard";
+import ProfileCard from "../components/profileCard";
+import ProfileReviews from "./ProfileReviews";
 
 interface ResourceItem {
   id: number;
@@ -14,7 +15,7 @@ interface ResourceItem {
 }
 
 interface ProfileContentProps {
-  activeTab: "Lend" | "Borrow" | "Exchange";
+  activeTab: "Lend" | "Borrow" | "Exchange" | "Reviews";
 }
 
 const ProfileContent = ({ activeTab }: ProfileContentProps) => {
@@ -76,6 +77,55 @@ const ProfileContent = ({ activeTab }: ProfileContentProps) => {
     }
   };
 
+  if (activeTab === "Reviews") {
+    return <ProfileReviews />;
+  }
+
+  if (activeTab !== "Borrow") {
+    return (
+      <div className="mt-10 px-4">
+        {items.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {items.map((item) => (
+              <ProfileCard
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                description={item.description}
+                photo={item.photos?.[0]}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center">
+            <Camera className="mx-auto mb-4 text-gray-500" size={48} />
+            <h2 className="text-lg font-semibold">
+              No {activeTab.toLowerCase()} items yet
+            </h2>
+            <p className="text-gray-500 mb-4">
+              {activeTab === "Lend"
+                ? "Your listed items will appear here"
+                : "Your exchange items will appear here"}
+            </p>
+            <div className="w-50 mb-6 mx-auto flex justify-center">
+              <Button
+                buttonName={`Add ${activeTab} Item`}
+                onClick={handleAddClick}
+                type="button"
+              />
+            </div>
+
+          </div>
+        )}
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <AddResourceForm onClose={() => setShowModal(false)} />
+          </Modal>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="mt-10 px-4">
       {items.length > 0 ? (
@@ -87,7 +137,7 @@ const ProfileContent = ({ activeTab }: ProfileContentProps) => {
               title={item.title}
               description={item.description}
               photo={item.photos?.[0]}
-              showReturn={activeTab === "Borrow"}
+              showReturn={true}
               onReturn={() => handleReturn(item.id)}
             />
           ))}
@@ -101,23 +151,7 @@ const ProfileContent = ({ activeTab }: ProfileContentProps) => {
           <p className="text-sm text-gray-400">
             Start adding your {activeTab.toLowerCase()} items here.
           </p>
-
-          {activeTab !== "Borrow" && (
-            <div className="mt-6 w-40 mx-auto">
-              <Button
-                buttonName={`Add ${activeTab}`}
-                onClick={handleAddClick}
-                type="button"
-              />
-            </div>
-          )}
         </div>
-      )}
-
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <AddResourceForm onClose={() => setShowModal(false)} />
-        </Modal>
       )}
     </div>
   );

@@ -1,4 +1,4 @@
-import BorrowRequests from "../Component/borrowRequests";
+import BorrowRequests from "../components/borrowRequests";
 
 const Notification = () => {
   return (

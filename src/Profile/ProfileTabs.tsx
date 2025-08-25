@@ -1,11 +1,11 @@
-import { Grid, Repeat, Handshake } from "lucide-react";
+import { Grid, Repeat, Handshake, MessageSquare } from "lucide-react";
 
 interface ProfileTabsProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
 
-const tabs = ["Borrow", "Lend", "Exchange"];
+const tabs = ["Borrow", "Lend", "Exchange", "Reviews"];
 
 const ProfileTabs = ({ activeTab, setActiveTab }: ProfileTabsProps) => {
   return (
@@ -21,6 +21,7 @@ const ProfileTabs = ({ activeTab, setActiveTab }: ProfileTabsProps) => {
           {tab === "Borrow" && <Grid size={20} />}
           {tab === "Lend" && <Handshake size={20} />}
           {tab === "Exchange" && <Repeat size={20} />}
+          {tab === "Reviews" && <MessageSquare size={20} />}
           <span className="mt-1">{tab}</span>
         </button>
       ))}

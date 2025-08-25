@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import socket from "../socket";
-import ChatList from "../Component/chatList";
-import ChatWindow from "../Component/chatWindow";
+import ChatList from "../components/chatList";
+import ChatWindow from "../components/chatWindow";
 
 interface Chat {
   id: number;

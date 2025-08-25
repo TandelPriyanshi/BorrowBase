@@ -43,7 +43,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ chat, messages, userId, onSendM
 
   if (!chat) {
     return (
-      <div className="flex-1 bg-gray-100 flex items-center justify-center text-gray-500 text-xl">
+      <div className="flex-1 bg-gray-100 flex items-center justify-center text-gray-500 text-xl h-screen">
         Select a chat to start messaging
       </div>
     );
@@ -95,7 +95,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ chat, messages, userId, onSendM
           ref={inputRef}
           type="text"
           placeholder="Type a message..."
-          className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+          className="flex-1 px-4 py-2 border rounded-lg"
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
         />
         <IconButton

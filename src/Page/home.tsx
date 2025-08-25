@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Navbar from "../Component/navbar";
-import Sidebar from "../Component/sidebar";
-import Footer from "../Component/footer";
+import Navbar from "../components/navbar";
+import Sidebar from "../components/sidebar";
+import Footer from "../components/footer";
 import Chat from "../MainComponent/chat";
 import Profile from "../MainComponent/profile";
 import Notification from "../MainComponent/notification";
@@ -18,6 +18,8 @@ const Home: React.FC = () => {
         return <Main isCollapsed={isSidebarCollapsed} />;
       case "/chat":
         return <Chat />;
+      case `/chat/${location.pathname.split("/")[2]}`:
+        return <Chat />;
       case "/profile":
         return <Profile />;
       case "/notification":
@@ -31,9 +33,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-        <div className="sticky top-0 z-50">
-          <Navbar />
-        </div>
+      <div className="sticky top-0 z-50">
+        <Navbar />
+      </div>
 
       <div className="flex flex-1">
         <div className="fixed top-[64px] left-0 h-[calc(100vh-64px)] z-40">
