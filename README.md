@@ -138,6 +138,9 @@ borrow_base/
 2. **Install dependencies**
    ```bash
    npm install
+
+   cd backend
+   npm install
    ```
 
 3. **Database Setup**
@@ -151,25 +154,30 @@ borrow_base/
 
 4. **Environment Configuration**
    ```bash
-   # Backend environment variables
-   PG_HOST=localhost
-   PG_USER=postgres
-   PG_PASSWORD=yourpassword
-   PG_DATABASE=borrowbase
-   PG_PORT=5432
+   # Environment Configuration
+   NODE_ENV=development
+   PORT=3000
+   
+   # Database Configuration
+   DATABASE_URL=borrowbase.db
    
    # JWT Configuration
-   JWT_SECRET=your-secret-key
+   JWT_SECRET="your-super-secret-jwt-access-key"
+   JWT_REFRESH_SECRET="your-super-secret-jwt"
    
-   # Upload Configuration
-   UPLOAD_DIR=./public/uploads
-   MAX_FILE_SIZE=10485760
+   # Security
+   BCRYPT_ROUNDS=12
+   
+   # API Configuration
+   API_VERSION=v1
+   API_BASE_URL=http://localhost:3000/api
+   
    ```
 
 5. **Start the application**
    ```bash
    # Development mode
-   npm run dev
+   npm run start
    
    # This will start:
    # - Frontend: http://localhost:5173
@@ -378,26 +386,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Sharing Economy** - Platforms that pioneered resource sharing
 - **Community Building** - Local initiatives promoting neighborhood connections
 - **Sustainability** - Environmental consciousness and waste reduction efforts
-
-## 📞 Support & Contact
-
-### **Documentation & Resources**
-- **📚 Full Documentation**: [docs.borrowbase.com](https://docs.borrowbase.com)
-- **🎥 Video Tutorials**: [tutorials.borrowbase.com](https://tutorials.borrowbase.com)
-- **📊 API Reference**: [api.borrowbase.com](https://api.borrowbase.com)
-
-### **Community & Support**
-- **💬 GitHub Discussions**: [GitHub Discussions](https://github.com/TandelPriyanshi/BorrowBase/discussions)
-- **🐛 Issue Tracker**: [GitHub Issues](https://github.com/TandelPriyanshi/BorrowBase/issues)
-- **📧 Email Support**: hello@borrowbase.com
-- **📞 Phone**: 1-800-BORROWBASE
-
-### **Social Media**
-- **🐦 Twitter**: [@borrowbase](https://twitter.com/borrowbase)
-- **📘 Facebook**: [BorrowBase Community](https://facebook.com/borrowbase)
-- **📸 Instagram**: [@borrowbase_app](https://instagram.com/borrowbase_app)
-- **💼 LinkedIn**: [BorrowBase](https://linkedin.com/company/borrowbase)
-
 ---
 
 <div align="center">
@@ -407,8 +395,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 **Built with ❤️ for sustainable communities**
 
 *"Sharing is caring, and caring builds communities."*
-
-[🏠 Website](https://borrowbase.com) • [📚 Docs](https://docs.borrowbase.com) • [💬 Community](https://community.borrowbase.com)
 
 </div>
 
